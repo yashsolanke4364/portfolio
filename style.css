@@ -1,0 +1,207 @@
+/* Custom class for the glowing effect on the contact button */
+.custom-btn-glow {
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6), 0 0 20px rgba(0, 191, 255, 0.4);
+    transition: all 0.4s ease-in-out;
+}
+.custom-btn-glow:hover {
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Custom styles for the profile image and card hover */
+.profile-image {
+    /* Subtle 3D shadow and glow */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(0, 191, 255, 0.5);
+    /* Animation for floating effect */
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Keyframes for the floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Project Card Hover Effect */
+.card.shadow-hover {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid transparent !important; 
+}
+.card.shadow-hover:hover {
+    /* Lift the card and add a sharp shadow/border */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #007bff !important;
+}
+
+/* Background Layer Effect */
+.bg-effect-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(20,20,20,1) 0%, rgba(5,5,5,1) 100%);
+    z-index: 0; 
+}
+
+/* Ensure header content is on top */
+#about .container {
+    z-index: 10;
+}
+
+
+/* --- NEW HEADER SOCIAL ICONS STYLING --- */
+
+.social-icons-in-header {
+    display: flex; 
+    justify-content: center;
+    gap: 15px; 
+}
+
+.social-icon-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+    color: white; 
+    background: #333; 
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Advanced bouncy transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Eye-catching Hover Effect: 3D Pop-up and Glow */
+.social-icon-header:hover {
+    transform: scale(1.15) rotate(3deg); 
+    box-shadow: 0 0 25px 5px var(--icon-color), 
+                0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- COLOR SCHEMES (Using CSS Variables) --- */
+.social-icon-header.linkedin { --icon-color: #0A66C2; background-color: var(--icon-color); }
+.social-icon-header.github   { --icon-color: #6e5494; background-color: var(--icon-color); }
+.social-icon-header.instagram { 
+    --icon-color: #E1306C; 
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.social-icon-header.email { --icon-color: #f7a000; background-color: var(--icon-color); }
+
+/* Ensure the icon color remains white on hover */
+.social-icon-header:hover {
+    color: white;
+}
+
+/* --- Interests Section Styling --- */
+#sports {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#sports .bg-effect-layer {
+    opacity: 0.3; /* Make the background effect more subtle here */
+}
+
+#sports .container {
+    position: relative;
+    z-index: 1; /* Ensure content is above the background effect */
+}
+
+.interest-card {
+    background: rgba(40, 40, 40, 0.8); /* Darker, semi-transparent background */
+    border: 1px solid rgba(0, 191, 255, 0.3); /* Subtle blue border */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    color: white; /* Ensure text is white */
+}
+
+.interest-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(0, 191, 255, 0.4), 0 0 40px rgba(0, 191, 255, 0.2);
+    border-color: rgba(0, 191, 255, 0.8);
+    background: rgba(20, 20, 20, 0.9);
+}
+
+.interest-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,191,255,0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.6s ease-out;
+    opacity: 0;
+}
+
+.interest-card:hover::before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.interest-card h4 {
+    color: #00bfff; /* Deep Sky Blue for titles */
+    text-shadow: 0 0 8px rgba(0, 191, 255, 0.5);
+}
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ai-ml-card .icon-wrapper i {
+    color: #a8dadc !important; /* Lighter blue for AI icons */
+    transition: transform 0.3s ease-in-out;
+}
+
+.ai-ml-card:hover .icon-wrapper i:first-child { transform: translateX(-5px) rotate(-5deg) scale(1.1); }
+.ai-ml-card:hover .icon-wrapper i:last-child { transform: translateX(5px) rotate(5deg) scale(1.1); }
+
+
+.sport-item {
+    background: rgba(60, 60, 60, 0.7);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #e0f7fa; /* Light cyan for sport text */
+}
+
+.sport-item:hover {
+    background: rgba(0, 191, 255, 0.2);
+    transform: translateY(-3px) scale(1.05);
+    border-color: #00bfff;
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.4);
+    color: #fff;
+}
+
+.sport-item i {
+    color: #80deea; /* Brighter cyan for sport icons */
+    transition: color 0.3s ease-in-out;
+}
+
+.sport-item:hover i {
+    color: #fff; /* White on hover */
+}
+
+/* Ensure z-index for content inside header to be above effect layer */
+#about .container {
+    z-index: 10;
+}
+
+/* Make sure footer links use your profile */
+footer .text-info[href="https://linkedin.com/in/yourprofile"] {
+    content: "LinkedIn"; /* This text won't change, but it's a reminder to update the href */
+}
+
+footer .text-info[href="https://github.com/yourprofile"] {
+    content: "GitHub"; /* Same here */
+}
